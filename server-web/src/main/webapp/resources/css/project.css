@@ -9,3 +9,6 @@ td, th {
  border: 1px solid #800;
  padding: 4px;
 }
+tr {
+ cursor:pointer
+}

@@ -12,6 +12,11 @@ public class HomeController {
 	@Autowired
 	private PersonManager personManager;
 
+	@GetMapping(value = "/")
+	public String index() {
+		return "redirect:/home";
+	}
+
 	@GetMapping("/home")
 	public ModelAndView home() {
 		ModelAndView model = new ModelAndView();

@@ -24,7 +24,7 @@
     </dependencies>
 
     <build>
-        <finalName>server-web</finalName>
+        <finalName>ROOT</finalName>
     </build>
 
 </project>

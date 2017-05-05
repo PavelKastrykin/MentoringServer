@@ -1,5 +1,7 @@
 package com.epam.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Person implements Comparable<Person> {
@@ -7,20 +9,19 @@ public class Person implements Comparable<Person> {
 	private long id;
 	private String name = "";
 	private String lastName = "";
-	private String skill;
-	private int level;
+	private List<Skill> skills = new ArrayList<>();
 	private int age;
+	private int salary;
 
 	public Person(){}
 
-	public Person(long id, String name, String lastName, String skill, int level, int age)
+	public Person(long id, String name, String lastName, int age, int salary)
 	{
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
-		this.skill = skill;
-		this.level = level;
 		this.age = age;
+		this.salary = salary;
 	}
 
 	@Override
@@ -31,28 +32,15 @@ public class Person implements Comparable<Person> {
 			return false;
 		Person person = (Person) o;
 		return id == person.id &&
-				level == person.level &&
 				age == person.age &&
+				salary == person.salary &&
 				Objects.equals(name, person.name) &&
-				Objects.equals(lastName, person.lastName) &&
-				Objects.equals(skill, person.skill);
+				Objects.equals(lastName, person.lastName);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, lastName, skill, level, age);
-	}
-
-	@Override
-	public String toString() {
-		return "Person{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				", lastName='" + lastName + '\'' +
-				", skill='" + skill + '\'' +
-				", level=" + level +
-				", age=" + age +
-				'}';
+		return Objects.hash(id, name, lastName, age, salary);
 	}
 
 	@Override
@@ -90,22 +78,6 @@ public class Person implements Comparable<Person> {
 		this.lastName = lastName;
 	}
 
-	public String getSkill() {
-		return skill;
-	}
-
-	public void setSkill(String skill) {
-		this.skill = skill;
-	}
-
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
 	public int getAge() {
 		return age;
 	}
@@ -114,5 +86,23 @@ public class Person implements Comparable<Person> {
 		this.age = age;
 	}
 
+	public int getSalary()
+	{
+		return salary;
+	}
 
+	public void setSalary(int salary)
+	{
+		this.salary = salary;
+	}
+
+	public List<Skill> getSkills()
+	{
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills)
+	{
+		this.skills = skills;
+	}
 }
